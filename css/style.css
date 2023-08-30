@@ -1,52 +1,53 @@
-:root {
-  /* THEME ONE */
+/* THEME ONE */
 
-  --clr-body-theme1: hsl(222, 26%, 31%);
-  --clr-toggle-keypad-theme1: hsl(223, 31%, 20%);
-  --clr-screen-theme1: hsl(224, 36%, 15%);
+body {
+  --clr-body: hsl(222, 26%, 31%);
+  --clr-toggle-keypad: hsl(223, 31%, 20%);
+  --clr-screen: hsl(224, 36%, 15%);
 
-  --clr-key-theme1: hsl(225, 21%, 49%);
-  --clr-key-shadow-theme1: hsl(224, 28%, 35%);
+  --clr-key: hsl(225, 21%, 49%);
+  --clr-key-shadow: hsl(224, 28%, 35%);
 
-  --clr-key-toggle-theme1: hsl(6, 63%, 50%);
-  --clr-key-shadow-2-theme1: hsl(6, 70%, 34%);
+  --clr-key-toggle: hsl(6, 63%, 50%);
+  --clr-key-shadow-2: hsl(6, 70%, 34%);
 
-  --clr-text-theme1: hsl(221, 14%, 31%);
+  --clr-text: hsl(221, 14%, 31%);
 
-  /* THEME TWO */
-  --clr-body-theme2: hsl(0, 0%, 90%);
-  --clr-toggle-keypad-theme2: hsl(0, 5%, 81%);
-  --clr-screen-theme2: hsl(0, 0%, 93%);
-
-  --clr-key-theme2: hsl(185, 42%, 37%);
-  --clr-key-shadow-theme2: hsl(185, 58%, 25%);
-
-  --clr-key-toggle-theme2: hsl(25, 98%, 40%);
-  --clr-key-shadow-2-theme2: hsl(25, 99%, 27%);
-
-  --clr-text-theme2: hsl(60, 10%, 19%);
-
-  /* THEME THREE */
-  --clr-body-theme3: hsl(268, 75%, 9%);
-  --clr-toggle-keypad-theme3: hsl(268, 71%, 12%);
-  --clr-screen-theme3: hsl(268, 71%, 12%);
-
-  --clr-key-theme3: hsl(281, 89%, 26%);
-  --clr-key-shadow-theme3: hsl(285, 91%, 52%);
-
-  --clr-key-background-2-theme3: hsl(176, 100%, 44%);
-  --clr-key-toggle-theme3: hsl(176, 100%, 44%);
-  --clr-key-shadow-2-theme3: hsl(177, 92%, 70%);
-
-  --clr-key-background-3-theme3: hsl(268, 47%, 21%);
-  --clr-key-shadow-3-theme3: hsl(290, 70%, 36%);
-
-  --clr-text-theme3: hsl(52, 100%, 62%);
-  --clr-text-2-theme3: hsl(198, 20%, 13%);
-
-  --clr-white-theme3: hsl(0, 0%, 100%);
+  --clr-white: hsl(0, 0%, 100%);
 }
 
+body.theme2 {
+  --clr-body: hsl(0, 0%, 90%);
+  --clr-toggle-keypad: hsl(0, 5%, 81%);
+  --clr-screen: hsl(0, 0%, 93%);
+
+  --clr-key: hsl(185, 42%, 37%);
+  --clr-key-shadow: hsl(185, 58%, 25%);
+
+  --clr-key-toggle: hsl(25, 98%, 40%);
+  --clr-key-shadow-2: hsl(25, 99%, 27%);
+
+  --clr-text: hsl(60, 10%, 19%);
+}
+
+body.theme3 {
+  --clr-body: hsl(268, 75%, 9%);
+  --clr-toggle-keypad: hsl(268, 71%, 12%);
+  --clr-screen: hsl(268, 71%, 12%);
+
+  --clr-key: hsl(281, 89%, 26%);
+  --clr-key-shadow: hsl(285, 91%, 52%);
+
+  --clr-key-background-2: hsl(176, 100%, 44%);
+  --clr-key-toggle: hsl(176, 100%, 44%);
+  --clr-key-shadow-2: hsl(177, 92%, 70%);
+
+  --clr-key-background-3: hsl(268, 47%, 21%);
+  --clr-key-shadow-3: hsl(290, 70%, 36%);
+
+  --clr-text: hsl(52, 100%, 62%);
+  --clr-text-2: hsl(198, 20%, 13%);
+}
 *::before,
 *::after,
 * {
@@ -57,17 +58,22 @@
 }
 
 body {
+  font-family: "League Spartan", sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--clr-body-theme1);
+  background-color: var(--clr-body);
+  color: var(--clr-text);
+}
+body:not(body.theme2, body.theme3) {
+  color: var(--clr-white);
 }
 
 .calculator {
-  background-color: beige;
-  max-width: 350px;
+  background-color: var(--clr-body);
+  max-width: 450px;
   padding: 20px;
   margin-inline: 2rem;
 }
@@ -76,6 +82,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.calculator__head h1 {
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .theme {
@@ -94,7 +105,7 @@ body {
   align-items: center;
   flex-direction: column;
   position: relative;
-  transform: translateY(-40%);
+  transform: translateY(-25%);
 }
 
 .labels {
@@ -112,7 +123,7 @@ body {
   height: 30px;
   width: 90px;
   position: relative;
-  background-color: var(--clr-toggle-keypad-theme1);
+  background-color: var(--clr-toggle-keypad);
   cursor: pointer;
   border-radius: 20px;
   display: flex;
@@ -142,18 +153,13 @@ input[type="radio"]:last-of-type {
   position: absolute;
   top: 2px;
   left: 5px;
-  background-color: var(--clr-key-toggle-theme1);
+  background-color: var(--clr-key-toggle);
   width: 25px;
   height: 25px;
   border-radius: 50%;
 }
 
 input[type="radio"] {
-  appearance: none;
-  width: 30px;
-  height: 30px;
-  outline: 1px solid;
-  border-radius: 50%;
   cursor: pointer;
   opacity: 0;
 }
@@ -163,7 +169,7 @@ input[type="radio"] {
   flex-direction: column;
   flex-wrap: wrap;
   height: 60px;
-  background-color: var(--clr-screen-theme1);
+  background-color: var(--clr-screen);
   margin-bottom: 20px;
   justify-content: flex-end;
   align-items: flex-end;
@@ -175,7 +181,24 @@ input[type="radio"] {
 .calculator__buttons {
   display: grid;
   grid-template-columns: repeat(4, 70px);
+  gap: 12px;
   grid-template-rows: repeat(5, 50px);
+  background-color: var(--clr-screen);
+  padding: 20px;
+}
+
+.calculator__buttons button {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--clr-text);
+  background-color: var(--clr-key);
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 0 3px 2px var(--clr-key-shadow);
+}
+
+body:not(body.theme3) .calculator__buttons button {
+  background-color: var(--clr-white);
 }
 
 .calculator__buttons .reset {
