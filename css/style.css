@@ -85,7 +85,7 @@ body:not(body.theme2, body.theme3) {
 }
 
 .calculator__head h1 {
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 700;
 }
 
@@ -96,7 +96,7 @@ body:not(body.theme2, body.theme3) {
 }
 
 .theme h2 {
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .toggle {
@@ -176,6 +176,7 @@ input[type="radio"] {
   font-size: 24px;
   padding-inline-end: 20px;
   overflow-x: hidden;
+  border-radius: 10px;
 }
 
 .calculator__buttons {
@@ -185,23 +186,48 @@ input[type="radio"] {
   grid-template-rows: repeat(5, 50px);
   background-color: var(--clr-screen);
   padding: 20px;
+  border-radius: 10px;
 }
 
 .calculator__buttons button {
   font-size: 32px;
   font-weight: 700;
   color: var(--clr-text);
-  background-color: var(--clr-key);
+  background-color: var(--clr-key-background-3);
   border: 0;
   border-radius: 5px;
   box-shadow: 0 3px 2px var(--clr-key-shadow);
+  cursor: pointer;
 }
 
 body:not(body.theme3) .calculator__buttons button {
   background-color: var(--clr-white);
+  box-shadow: 0 3px 2px var(--clr-white);
 }
 
-.calculator__buttons .reset {
+body:not(body.theme3) .calculator__buttons button.delete,
+body:not(body.theme3) .calculator__buttons button.reset {
+  background-color: var(--clr-key);
+  color: var(--clr-white);
+  box-shadow: 0 3px 2px var(--clr-key-shadow);
+}
+
+.calculator__buttons button.delete {
+  background-color: var(--clr-key);
+}
+
+body:not(body.theme3) .calculator__buttons button.equal-symbol {
+  background-color: var(--clr-key-toggle);
+  box-shadow: 0 3px 3px var(--clr-key-shadow-2);
+}
+
+.calculator__buttons button.equal-symbol {
+  background-color: var(--clr-key-background-2);
+  box-shadow: 0 3px 2px var(--clr-key-shadow-2);
+}
+
+.calculator__buttons button.reset {
+  background-color: var(--clr-key);
   grid-column: 1/3;
 }
 
